@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
-      <div className="container mt-5 flex-grow-1">{children}</div>
+      <div className="container mt-5 flex-grow-1 pb-[10%]">{children}</div>
       <Footer />
     </div>
   );

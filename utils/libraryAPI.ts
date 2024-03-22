@@ -29,9 +29,14 @@ export class libraryAPI {
         }
     }
     
+    public async get() {
+
+    }
+
     private getEndpoint(): any {
         return process.env.LIBRARY_ENDPOINT || "";
     }
+    
     private createClient(params: object = {}): AxiosInstance {
         const config: AxiosRequestConfig = {
             baseURL: this.getEndpoint(),

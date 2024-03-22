@@ -2,6 +2,9 @@
 
 import { libraryAPI } from "@/utils/libraryAPI";
 import { Suspense, useState } from "react";
+import { List, ListItemButton, ListItemText, TableRow } from '@mui/material';
+import Link from "next/link";
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 export default async function Home() {
   const lib = new libraryAPI();
@@ -18,9 +21,15 @@ export default async function Home() {
               per te.
             </p>
             <div className="row row-cols-2 pt-5 row-cols-md-3 g-3">
-              {genres.map((data:any) => (
-                <a className="hover:text-red-500 w-25" key={data.genreId} href={`/genre/${data.description}`}>{data.description}</a>
-              ))}
+              <TableRow>
+                {genres.map((data: any) => (
+                  <Link key={data.genreId} href={`/genre/${data.description}`}>
+                    <ListItemButton component="button">
+                      <LibraryBooksIcon/> <ListItemText primary={` ${data.description}`}/>
+                    </ListItemButton>
+                  </Link>
+                ))}
+              </TableRow>
             </div>
           </div>
         </div>
