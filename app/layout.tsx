@@ -12,9 +12,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
