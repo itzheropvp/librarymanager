@@ -6,7 +6,7 @@ const Navbar = () => {
     <AppBar position="static" style={{backgroundColor: '#4E4F50'}}>
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          Libreria Online
+          <a href="/">Libreria Online</a>
         </Typography>
       </Toolbar>
     </AppBar>

@@ -1,9 +1,9 @@
 "use client";
 import { libraryAPI } from "@/utils/libraryAPI";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import BookCard from '@/components/BookCard';
-import { Box, Button, Grid, Snackbar, Typography } from "@mui/material";
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Snackbar, TextField, Typography } from "@mui/material";
 
 // ICONS
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -18,10 +18,18 @@ const books = [
 ];
 
 export default async function Page() {
+    const [addBookDialog, setBookDialog] = useState(false);
     const params = useParams();
     const genreId = params.id[0];
     const lib = new libraryAPI();
     const response = await lib.getGenreByName(null, genreId);
+    const handleClickBookDialogOpen = () => {
+        setBookDialog(true);
+    };
+
+    const handleBookDialogClose = () => {
+        setBookDialog(false);
+    };
     return (response != undefined) ? (
         <>
             <Box style={{ marginBottom: '2%' }}>
@@ -30,7 +38,7 @@ export default async function Page() {
                         <Button variant="contained" href="/"><ArrowBackIcon /> Torna Indietro</Button>
                     </Grid>
                     <Grid item spacing={3}>
-                        <Button variant="contained" color="success" href="/"><AddIcon /> Aggiungi Libro</Button>
+                        <Button variant="contained" color="success"><AddIcon /> Aggiungi Libro</Button>
                     </Grid>
                     <Grid item spacing={3}>
                         <Button variant="contained" color="error" href="/"><DeleteForeverIcon /> Rimuovi Libro</Button>
@@ -48,6 +56,8 @@ export default async function Page() {
                     </Grid>
                 ))}
             </Grid>
+
+
         </>
     ) : (
         <>

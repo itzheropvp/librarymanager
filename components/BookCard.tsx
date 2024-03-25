@@ -3,6 +3,10 @@ import { Card, CardMedia, CardContent, Typography, Button, Divider, Rating } fro
 
 
 export default function BookCard({ title, author, cover, description, rating }: any) {
+    const KnowMore = () => {
+        console.log(title)
+    }
+
     return (
         <>
             <Card>
@@ -26,7 +30,7 @@ export default function BookCard({ title, author, cover, description, rating }: 
                     </Typography>
                 </CardContent>
                 <CardContent>
-                    <Button>Conosci di più</Button>
+                    <Button onClick={() => console.log('test')}>Conosci di più</Button>
                 </CardContent>
             </Card>
         </>

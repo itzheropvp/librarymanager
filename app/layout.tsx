@@ -1,11 +1,8 @@
 "use client";
-
-import { useEffect } from "react";
-import Navbar from "@/components/NavBar";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Container } from '@mui/material';
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 
 export default function RootLayout({
@@ -14,12 +11,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Navbar />
-      <Container style={{marginTop: '5%', marginBottom: '5%'}}>
-        {children}
-      </Container>
-      <Footer />
-    </div>
+    <html lang="en">
+      <body>
+        <Container style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Navbar />
+          <Container style={{ marginTop: '2%', marginBottom: '2%' }}>
+            {children}
+          </Container>
+          <Footer />
+        </Container>
+      </body>
+    </html>
   );
 }

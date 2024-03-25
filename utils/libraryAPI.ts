@@ -10,6 +10,7 @@ export class libraryAPI {
             return response.data;
         } catch (error: any) {
             throw Error(error);
+            return;
         }
     }    
 
